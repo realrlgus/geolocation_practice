@@ -32,8 +32,12 @@ if ("geolocation" in navigator) {
     longitude = position.coords.longitude;
 
     layer.innerHTML =
-      '<span>위도 : <span id="latitude"></span></span>' +
-      '<span>경도 : <span id="longitude"> </span> </span>';
+      '<div>위도 : <span id="latitude">' +
+      longitude +
+      "</span></div>" +
+      '<div>경도 : <span id="longitude">' +
+      latitude +
+      " </span> </div>";
 
     initialize(latitude, longitude);
   };
