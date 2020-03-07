@@ -33,10 +33,10 @@ if ("geolocation" in navigator) {
 
     layer.innerHTML =
       '<div>위도 : <span id="latitude">' +
-      longitude +
+      latitude +
       "</span></div>" +
       '<div>경도 : <span id="longitude">' +
-      latitude +
+      longitude +
       " </span> </div>";
 
     initialize(latitude, longitude);
