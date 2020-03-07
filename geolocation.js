@@ -23,12 +23,17 @@ function initialize(latitude, longitude) {
 if ("geolocation" in navigator) {
   var latitude;
   var longitude;
+  var layer = document.getElementById("layer");
   var geoSuccess = function(position) {
     geoPosition = position;
 
     // 위도 경도
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
+
+    layer.innerHTML =
+      '<span>위도 : <span id="latitude"></span></span>' +
+      '<span>경도 : <span id="longitude"> </span> </span>';
 
     initialize(latitude, longitude);
   };
@@ -39,6 +44,7 @@ if ("geolocation" in navigator) {
     //   1: permission denied
     //   2: position unavailable (error response from location provider)
     //   3: timed out
+    layer.innerHTML = "위치 권한 승인 안됨.";
   };
   // 사용자의 현재 위치를 구한다.
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
